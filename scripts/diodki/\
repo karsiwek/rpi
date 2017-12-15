@@ -1,0 +1,18 @@
+import os;
+import time;
+import random
+import math
+
+os.popen("./diodki_lib 1 1 1 1 1 1 1 0").read()
+
+oldVals = [0,0,0,0,0,0,0,0]
+oldValsPointer = 0;
+
+
+
+for i in range(255):
+	oldValsPointer = (oldValsPointer+1)%8;
+	oldVals[oldValsPointer] = (oldVals[oldValsPointer] +((math.floor(random.random()*32)-16)))%0x100000
+	os.popen("./diodki_lib "+" "+" ".join(map(str, oldVals))).read()
+	print 1;
+	time.sleep(0.01);

@@ -1,0 +1,11 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setup(12, GPIO.OUT)
+
+GPIO.output(12, not GPIO.input(12))
+
+time.wait(1)
+
+GPIO.output(12, not GPIO.input(12))
+
